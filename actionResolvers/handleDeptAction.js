@@ -16,6 +16,8 @@ export const handleEmp = (payload, state) => {
 
 const newState = JSON.parse(JSON.stringify(state));
 
+console.log("payload ==> ",payload);
+
 newState["selectedEmployee"]= payload;
 
 

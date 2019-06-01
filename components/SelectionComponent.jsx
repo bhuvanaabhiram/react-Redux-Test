@@ -9,6 +9,10 @@ import RenderEmployee from "./renderEmp";
 
 import GetEmpDetails from "./GetEmpDetails";
 
+import ShowEmpDetails from "./ShowEmpDetails";
+
+import ClearEmpDetails from "./ClearEmpDetails";
+
 class SelectionComponent extends Component {
 
 constructor() {
@@ -17,14 +21,14 @@ constructor() {
 
  render() {
     return (
-      <div data-test = "selectComp">
+      <div data-test = "selectComp" align = "center">
      <RenderDepart/>
      <RenderEmployee />
      <GetEmpDetails />
-   { /* 
+  
      <ClearEmpDetails />
-    */
-    } 
+  
+    <ShowEmpDetails />
       </div>
     );
   }

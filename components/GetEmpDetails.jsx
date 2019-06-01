@@ -19,6 +19,9 @@ constructor() {
 
 handleGetEmpDetails() {
 
+console.log("this.props.state",this.props.state);
+
+
 this.props._loadEmployee(this.props.state.selectedEmployee);
 
 }
@@ -55,6 +58,9 @@ return {
 
 const URL = `https://reqres.in/api/users/${empId}`;
 
+
+console.log("URL", URL);
+
 fetch(URL)
   .then(
     function(response) {
@@ -66,15 +72,15 @@ fetch(URL)
 
       // Examine the text in the response
       response.json().then(function(data) {
-      
+        console.log(data);
 
-       dispatch({
- type :"GET_EMP_DETAILS",
- payload :data
- });
+        dispatch({
+type :"GET_EMP_DETAILS",
+payload :data
+})
 
 
-
+        
 
       });
     }
@@ -82,8 +88,6 @@ fetch(URL)
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
   });
-
-
 
 
 

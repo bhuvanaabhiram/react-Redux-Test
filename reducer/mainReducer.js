@@ -27,6 +27,9 @@ return handleEmp(action.payload,state);
 case "GET_EMP_DETAILS":
 return handleEmpDetails(action.payload,state);
  
+ case "CLEAR_EMPLOYEES":
+ return {...initialState};
+
 
 default:
   return {...state};

@@ -23,18 +23,20 @@ this.props._updEmp(event.target.value);
 
 }
 
-render() {
+handleRender() {
 
 const currenState = this.props.state;
 const currDept = currenState.selectedDepartment; 
-const currDeptWithNull = ["",...currenState.department[currDept]]
+
+if(this.props.state.selectedDepartment){
+
 return (
 
 <Fragment>
 Employee Id:
-<select name = "dept" test-data = "departmentComp" value={currenState.selectedEmployee} onChange = {this.handleDeptChange} >
+<select name = "dept" test-data = "departmentComp" value={currenState.selectedEmployee === null ? "" : currenState.selectedEmployee } onChange = {this.handleDeptChange} >
 { 
-currDeptWithNull.map(
+currenState.department[currDept].map(
 value => <option value = {value} key = {value}>{value}</option>
 )
 }
@@ -42,6 +44,25 @@ value => <option value = {value} key = {value}>{value}</option>
 </Fragment>
 
 );
+
+
+}
+
+
+else {
+return (  
+  <Fragment>
+<select name = "dept" test-data = "departmentComp" value={currenState.selectedEmployee} onChange = {this.handleDeptChange} >
+</select> &nbsp;
+</Fragment>
+)
+}
+
+}
+
+render() {
+
+return this.handleRender();
 
 }
 
